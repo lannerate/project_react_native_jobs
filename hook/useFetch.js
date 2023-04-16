@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useFetch = (endpoint, query) => {
+const useFetch = (endpoint, query, delay) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -32,9 +32,7 @@ const useFetch = (endpoint, query) => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  useEffect(() => { setTimeout(() => fetchData(), delay || 10); }, []);
 
   const refetch = () => {
     setIsLoading(true);

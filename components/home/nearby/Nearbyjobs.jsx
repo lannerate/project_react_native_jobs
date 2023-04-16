@@ -12,7 +12,7 @@ const Nearbyjobs = () => {
   const { data, isLoading, error } = useFetch("search", {
     query: "React Native developer",
     num_pages: "1",
-  });
+  }, 3000);
 
   return (
     <View style={styles.container}>
